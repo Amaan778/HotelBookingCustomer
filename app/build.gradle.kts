@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.app.hotelbookingcustomer"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.app.hotelbookingcustomer"
@@ -45,4 +45,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("com.intuit.sdp:sdp-android:1.1.1")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation ("com.github.yalantis:ucrop:2.2.6")
 }
