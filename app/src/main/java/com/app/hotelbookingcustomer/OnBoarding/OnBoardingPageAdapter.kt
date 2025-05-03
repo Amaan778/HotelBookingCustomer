@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class OnBoardingPageAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
-    override fun getItemCount(): Int =4
+    override fun getItemCount(): Int =3
 
     override fun createFragment(position: Int): Fragment {
         return OnBoardingFragment.newInstance(position)
