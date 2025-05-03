@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.app.hotelbookingcustomer.OnBoarding.OnBoardingActivity
 import com.app.hotelbookingcustomer.OnBoarding.OnBoardingFragment
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this,OnBoardingFragment::class.java))
+            startActivity(Intent(this,OnBoardingActivity::class.java))
             finish()
         },3000)
 
