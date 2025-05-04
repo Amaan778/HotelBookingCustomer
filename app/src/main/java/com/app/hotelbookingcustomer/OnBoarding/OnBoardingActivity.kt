@@ -42,7 +42,7 @@ class OnBoardingActivity : AppCompatActivity() {
             if (viewPager.currentItem < 2) {
                 viewPager.currentItem += 1
             } else {
-                startActivity(Intent(this, Dashboard::class.java)) // Navigate after onboarding
+                startActivity(Intent(this, Dashboard::class.java))
                 finish()
             }
         }
