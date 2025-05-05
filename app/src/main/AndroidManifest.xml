@@ -16,13 +16,7 @@
             android:name=".auth.SignActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.RegisterActivity"
-            android:exported="false" />
-        <activity
             android:name=".OnBoarding.OnBoardingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OnBoarding.OnBoardingScreen"
             android:exported="false" />
         <activity
             android:name=".Dashboard"
