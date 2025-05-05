@@ -2,4 +2,5 @@
     <string name="app_name">HotelBookingCustomer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register_tagline">Fill your information below or register with your social account</string>
 </resources>
