@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.app.hotelbookingcustomer.Dashboard
 import com.app.hotelbookingcustomer.R
+import com.app.hotelbookingcustomer.auth.RegisterActivity
 
 class OnBoardingActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
@@ -42,7 +43,7 @@ class OnBoardingActivity : AppCompatActivity() {
             if (viewPager.currentItem < 2) {
                 viewPager.currentItem += 1
             } else {
-                startActivity(Intent(this, Dashboard::class.java))
+                startActivity(Intent(this, RegisterActivity::class.java))
                 finish()
             }
         }
