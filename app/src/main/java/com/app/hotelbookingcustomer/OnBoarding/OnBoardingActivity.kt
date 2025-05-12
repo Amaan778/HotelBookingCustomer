@@ -1,5 +1,6 @@
 package com.app.hotelbookingcustomer.OnBoarding
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
@@ -19,6 +20,17 @@ class OnBoardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_on_boarding)
+
+        // Check if onboarding is already shown
+        val sharedPref = getSharedPreferences("HotelBookingPrefs", Context.MODE_PRIVATE)
+        val isFirstTime = sharedPref.getBoolean("isFirstTime", true)
+
+        if (!isFirstTime) {
+            // Skip onboarding and go to RegisterActivity directly
+            startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
+            return
+        }
 
         viewPager = findViewById(R.id.viewPager)
         buttonNext = findViewById(R.id.buttonNext)
@@ -43,6 +55,10 @@ class OnBoardingActivity : AppCompatActivity() {
             if (viewPager.currentItem < 2) {
                 viewPager.currentItem += 1
             } else {
+                // Save flag so onboarding is not shown again
+                sharedPref.edit().putBoolean("isFirstTime", false).apply()
+
+                // Go to RegisterActivity
                 startActivity(Intent(this, RegisterActivity::class.java))
                 finish()
             }
