@@ -9,13 +9,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.app.hotelbookingcustomer.R
 
 class SignActivity : AppCompatActivity() {
-    private lateinit var linear:LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign)
-
-        linear=findViewById(R.id.linear)
 
     }
 }

@@ -3,12 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:id="@+id/linear"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".auth.SignActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In User"
+        android:textSize="@dimen/_25sdp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:layout_margin="@dimen/_9sdp"/>
 
 
 </LinearLayout>
