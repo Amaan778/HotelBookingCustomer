@@ -1,21 +1,16 @@
 package com.app.hotelbookingcustomer.auth
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.app.hotelbookingcustomer.Dashboard
 import com.app.hotelbookingcustomer.R
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 
 class SignActivity : AppCompatActivity() {
     private lateinit var email:EditText
@@ -23,6 +18,7 @@ class SignActivity : AppCompatActivity() {
     private lateinit var signin:TextView
     private lateinit var auth: FirebaseAuth
     private lateinit var regscreen:TextView
+    var sharedPreferences: SharedPreferences?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,18 +27,22 @@ class SignActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-//        // Check if user is already logged in
-//        if (auth.currentUser != null) {
-//            startActivity(Intent(this, Dashboard::class.java))
-//            finish()
-//            return
-//        }
-
         // UI Initialization
         email = findViewById(R.id.email)
         pass = findViewById(R.id.pass)
         signin = findViewById(R.id.submit)
         regscreen = findViewById(R.id.clickhere)
+
+//        if (restore()){
+//            startActivity(Intent(this, Dashboard::class.java))
+//            finish()
+//        }
+
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this, Dashboard::class.java))
+            finish()
+        }
 
         // Login logic
         signin.setOnClickListener {
@@ -68,18 +68,19 @@ class SignActivity : AppCompatActivity() {
 
         // Go to register screen
         regscreen.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivitys::class.java))
         }
 
     }
+    private fun saved(){
+        sharedPreferences=applicationContext.getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val editor=sharedPreferences!!.edit()
+        editor.putBoolean("clicked",true)
+        editor.apply()
+    }
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            startActivity(Intent(this, Dashboard::class.java))
-            finish()
-        }
+    private fun restore():Boolean{
+        sharedPreferences=applicationContext.getSharedPreferences("pref", Context.MODE_PRIVATE)
+        return sharedPreferences!!.getBoolean("clicked",false)
     }
 }

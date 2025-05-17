@@ -7,7 +7,7 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.RegisterActivity">
+    tools:context=".auth.RegisterActivitys">
 
     <ScrollView
         android:layout_width="match_parent"
