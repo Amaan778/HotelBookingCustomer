@@ -36,6 +36,12 @@ class SignActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this,Dashboard::class.java))
+            finish()
+        }
+
         signin.setOnClickListener {
 
             val mail=email.text.toString()
@@ -53,7 +59,7 @@ class SignActivity : AppCompatActivity() {
         }
 
         regscreen.setOnClickListener {
-            startActivity(Intent(this,SignActivity::class.java))
+            startActivity(Intent(this,RegisterActivity::class.java))
         }
 
     }
