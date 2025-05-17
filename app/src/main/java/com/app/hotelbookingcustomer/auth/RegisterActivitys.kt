@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.app.hotelbookingcustomer.Dashboard
 import com.app.hotelbookingcustomer.R
 import com.google.firebase.Firebase
@@ -18,7 +15,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.database
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivitys : AppCompatActivity() {
     private lateinit var name:EditText
     private lateinit var email:EditText
     private lateinit var password:EditText

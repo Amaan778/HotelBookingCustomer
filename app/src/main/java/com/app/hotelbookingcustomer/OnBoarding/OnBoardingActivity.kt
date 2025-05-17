@@ -4,14 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
-import com.app.hotelbookingcustomer.Dashboard
 import com.app.hotelbookingcustomer.R
-import com.app.hotelbookingcustomer.auth.RegisterActivity
+import com.app.hotelbookingcustomer.auth.RegisterActivitys
 import com.app.hotelbookingcustomer.auth.SignActivity
 
 class OnBoardingActivity : AppCompatActivity() {
@@ -28,7 +24,7 @@ class OnBoardingActivity : AppCompatActivity() {
 
         if (!isFirstTime) {
             // Skip onboarding and go to RegisterActivity directly
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, SignActivity::class.java))
             finish()
             return
         }
