@@ -22,6 +22,7 @@ class SignActivity : AppCompatActivity() {
     private lateinit var pass:EditText
     private lateinit var signin:TextView
     private lateinit var auth: FirebaseAuth
+    private lateinit var regscreen:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,7 @@ class SignActivity : AppCompatActivity() {
         email=findViewById(R.id.email)
         pass=findViewById(R.id.pass)
         signin=findViewById(R.id.submit)
+        regscreen=findViewById(R.id.clickhere)
 
         // Initialize Firebase Auth
         auth = Firebase.auth
@@ -48,7 +50,10 @@ class SignActivity : AppCompatActivity() {
                         Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT,).show()
                     }
                 }
+        }
 
+        regscreen.setOnClickListener {
+            startActivity(Intent(this,SignActivity::class.java))
         }
 
     }
