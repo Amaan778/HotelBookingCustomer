@@ -28,39 +28,58 @@ class SignActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign)
 
-        email=findViewById(R.id.email)
-        pass=findViewById(R.id.pass)
-        signin=findViewById(R.id.submit)
-        regscreen=findViewById(R.id.clickhere)
-
         // Initialize Firebase Auth
-        auth = Firebase.auth
+        auth = FirebaseAuth.getInstance()
 
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            startActivity(Intent(this,Dashboard::class.java))
-            finish()
-        }
+//        // Check if user is already logged in
+//        if (auth.currentUser != null) {
+//            startActivity(Intent(this, Dashboard::class.java))
+//            finish()
+//            return
+//        }
 
+        // UI Initialization
+        email = findViewById(R.id.email)
+        pass = findViewById(R.id.pass)
+        signin = findViewById(R.id.submit)
+        regscreen = findViewById(R.id.clickhere)
+
+        // Login logic
         signin.setOnClickListener {
+            val mail = email.text.toString().trim()
+            val password = pass.text.toString().trim()
 
-            val mail=email.text.toString()
-            val password=pass.text.toString()
+            if (mail.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             auth.signInWithEmailAndPassword(mail, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        startActivity(Intent(this,Dashboard::class.java))
-                        Toast.makeText(this,"login success",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Login successful", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this, Dashboard::class.java))
+                        finish()
                     } else {
-                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT,).show()
+                        Toast.makeText(this, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
 
+        // Go to register screen
         regscreen.setOnClickListener {
-            startActivity(Intent(this,RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this, Dashboard::class.java))
+            finish()
+        }
     }
 }
