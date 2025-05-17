@@ -84,4 +84,18 @@
         android:gravity="center"
         android:padding="@dimen/_9sdp"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/does"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/clickhere"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click Here"
+        android:textColor="@color/themecolor"
+        android:gravity="center"/>
+
 </LinearLayout>
