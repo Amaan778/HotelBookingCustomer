@@ -33,11 +33,6 @@ class SignActivity : AppCompatActivity() {
         signin = findViewById(R.id.submit)
         regscreen = findViewById(R.id.clickhere)
 
-//        if (restore()){
-//            startActivity(Intent(this, Dashboard::class.java))
-//            finish()
-//        }
-
         val currentUser = auth.currentUser
         if (currentUser != null) {
             startActivity(Intent(this, Dashboard::class.java))
@@ -71,16 +66,5 @@ class SignActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivitys::class.java))
         }
 
-    }
-    private fun saved(){
-        sharedPreferences=applicationContext.getSharedPreferences("pref", Context.MODE_PRIVATE)
-        val editor=sharedPreferences!!.edit()
-        editor.putBoolean("clicked",true)
-        editor.apply()
-    }
-
-    private fun restore():Boolean{
-        sharedPreferences=applicationContext.getSharedPreferences("pref", Context.MODE_PRIVATE)
-        return sharedPreferences!!.getBoolean("clicked",false)
     }
 }
