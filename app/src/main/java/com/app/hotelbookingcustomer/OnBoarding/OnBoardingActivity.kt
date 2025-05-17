@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.app.hotelbookingcustomer.Dashboard
 import com.app.hotelbookingcustomer.R
 import com.app.hotelbookingcustomer.auth.RegisterActivity
+import com.app.hotelbookingcustomer.auth.SignActivity
 
 class OnBoardingActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
@@ -59,7 +60,7 @@ class OnBoardingActivity : AppCompatActivity() {
                 sharedPref.edit().putBoolean("isFirstTime", false).apply()
 
                 // Go to RegisterActivity
-                startActivity(Intent(this, RegisterActivity::class.java))
+                startActivity(Intent(this, SignActivity::class.java))
                 finish()
             }
         }
