@@ -18,7 +18,6 @@ class SignActivity : AppCompatActivity() {
     private lateinit var signin:TextView
     private lateinit var auth: FirebaseAuth
     private lateinit var regscreen:TextView
-    var sharedPreferences: SharedPreferences?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
