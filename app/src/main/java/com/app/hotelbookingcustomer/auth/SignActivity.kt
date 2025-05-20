@@ -26,7 +26,8 @@ class SignActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-        // UI Initialization
+
+
         email = findViewById(R.id.email)
         pass = findViewById(R.id.pass)
         signin = findViewById(R.id.submit)
