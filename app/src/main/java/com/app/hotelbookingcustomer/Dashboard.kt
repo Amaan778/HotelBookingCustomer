@@ -11,16 +11,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.app.hotelbookingcustomer.databinding.ActivityMain2Binding
+import com.app.hotelbookingcustomer.databinding.ActivityDashboardBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Dashboard : AppCompatActivity() {
-    private lateinit var binding: ActivityMain2Binding
+    private lateinit var binding: ActivityDashboardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMain2Binding.inflate(layoutInflater)
+        binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
