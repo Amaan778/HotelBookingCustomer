@@ -5,4 +5,8 @@
     <string name="register_tagline">Fill your information below or register with your social account</string>
     <string name="signin_tagline">Hii! Welcome back, you have been missed</string>
     <string name="does">Does not have account ?</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
