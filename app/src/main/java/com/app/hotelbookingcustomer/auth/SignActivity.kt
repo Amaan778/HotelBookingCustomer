@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.app.hotelbookingcustomer.Dashboard
+import com.app.hotelbookingcustomer.MainActivity2
 import com.app.hotelbookingcustomer.R
 import com.google.firebase.auth.FirebaseAuth
 
